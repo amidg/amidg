@@ -1,0 +1,306 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html { 
+  scroll-behavior: smooth;
+}
+
+main { 
+  font-family: "Cormorant Garamond", serif;
+}
+
+.noice { 
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200vh;
+  background: transparent url('/RectanglePink.png') repeat 0 0;
+  background-repeat: repeat;
+  animation: bg-animation .7s infinite;
+  opacity: .25;
+  visibility: visible;
+}
+
+.noice2 { 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent url('/Rectangle4.png') repeat 0 0;
+  animation: bg-animation2 .2s infinite;
+  opacity: .17;
+  visibility: visible;
+}
+
+.wave { 
+  transform-origin: 70% 70%; 
+}
+
+@keyframes bg-animation {
+  0% { transform: translate(0,0) }
+  10% { transform: translate(-5%,-5%) }
+  20% { transform: translate(-10%,5%) }
+  30% { transform: translate(5%,-10%) }
+  40% { transform: translate(-5%,15%) }
+  50% { transform: translate(-10%,5%) }
+  60% { transform: translate(15%,0) }
+  70% { transform: translate(0,10%) }
+  80% { transform: translate(-15%,0) }
+  90% { transform: translate(10%,5%) }
+  100% { transform: translate(5%,0) }
+}
+
+@keyframes bg-animation2 {
+  0% { background-position: 0 0; }
+  10% { background-position: -5% -5%; }
+  20% { background-position: -10% 5%; }
+  30% { background-position: 5% -10%; }
+  40% { background-position: -5% 15%; }
+  50% { background-position: -10% 5%; }
+  60% { background-position: 15% 0; }
+  70% { background-position: 0 10%; }
+  80% { background-position: -15% 0; }
+  90% { background-position: 10% 5%; }
+  100% { background-position: 5% 0; }
+}
+.glow-on-hover {
+  position: relative;
+  z-index: 0;
+}
+
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(45deg, #b2a0ff, #2cceff, #0060b9, #9b29e7, #00ffd5, #002bff, #7a00ff, #ff00c8, #b2a0ff);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #1B263E;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+.card-background { 
+  background: linear-gradient(90deg, #f3696e 0%, #f8a902 100%);;
+	animation: gradient 40s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-corner {
+  background: #000;
+}
+
+::selection {
+  color: #5686f5;
+  background: rgba(45, 63, 102, 0.7);
+}
+
+/* Add these classes to your tailwind.config.js */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.bebas {
+  font-family: "Bebas Neue", cursive;
+}
+
+.hover\:glow:hover {
+  filter: drop-shadow(0px 0px 7px rgba(59, 130, 246, 0.5));
+}
+
+.group:hover .group-hover\:\-translate-y-1 {
+  transform: translateY(-0.25rem);
+}
+
+.group:focus .group-focus\:pt-20 {
+  padding-top: 5rem;
+}
+
+.animate-down {
+  transform: translateY(250%) !important
+}
+
+.animate-up {
+  transform: translateY(-250%) !important
+}
+
+.hidden {
+  display: none;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  height: 28rem;
+  width: 56.23rem;
+  border: 2px solid #0000;
+  border-radius: 12px;
+  background: linear-gradient(180deg,#141B2D, #141B2D) padding-box, linear-gradient(
+        var(--angle),
+        #00031A,
+        #5686f5
+      ) border-box;
+  animation: 8s rotate linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Shadow of the LinkedIn contact */
+.custom-text-shadow {
+  text-shadow: #6c79b4 0 0 14px;
+}
+
+.custom-text-shadow:hover {
+  text-shadow: none;
+  transition: ease-in-out;
+  transition-duration: 100ms;
+}
+
+/* Wave button underline */
+.wave-btn {
+  position: relative;
+  color: inherit;
+  text-decoration: none
+}
+
+.wave-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  /* Adjust as necessary */
+  width: 100%;
+  height: 2px;
+  /* Adjust as necessary */
+  background-image: linear-gradient(to right, currentColor 50%, transparent 50%);
+  background-size: 6px 2px;
+  /* Adjust for wavy effect */
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-in-out;
+}
+
+.wave-btn:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+/* Animated Background Blob */
+
+@keyframes rotate {
+  0% {
+           transform: rotate(0deg);
+       }
+       100% {
+           transform: rotate(360deg);
+       }
+   }
+   .out-top {
+       animation: rotate 20s linear infinite;
+       transform-origin: 13px 25px;
+   }
+   .in-top {
+       animation: rotate 10s linear infinite;
+       transform-origin: 13px 25px;
+   }
+   .out-bottom {
+       animation: rotate 25s linear infinite;
+       transform-origin: 84px 93px;
+   }
+   .in-bottom {
+       animation: rotate 15s linear infinite;
+       transform-origin: 84px 93px;
+   }
+
+
+   /* tabs for work exp */
+   .no-visible-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+   
+  .no-visible-scrollbar::-webkit-scrollbar {
+    display: none;
+  }

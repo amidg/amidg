@@ -1,14 +1,14 @@
 ## Who am I? 👨‍💻
-Delicate mechatronic engineer in automotive and robotics field, specialized in rapid prototyping, out-of-box innovation, and delivering the state-of-the-art scalable mechatronic, software and electronics designs.
-Robotics engineering expert with a track record of delivery state-of-the-art robotics solutions for Tesla, Li Auto, Milwaukee, Compal and Dell.
-Embedded systems geek with experience in firmware development (bare-metal and FreeRTOS) as well as board design and bring-up (analog, digital and high-speed design).
-Free and Open-Source Software fanatic. Full-time Linux developer and user. All my projects rely on the foundation of open-source technologies.
-Experienced manufacturing engineer preivously responsible for Material Flow and Battery Cell Manufacturing.
+Delicate mechatronic engineer in automotive and robotics field, specialized in rapid prototyping, out-of-box innovation, and delivering the state-of-the-art scalable mechatronic, software and electronics designs. \
+Robotics engineering expert with a track record of delivery state-of-the-art robotics solutions for Tesla, Li Auto, Milwaukee, Compal and Dell. \
+Embedded systems geek with experience in firmware development (bare-metal and FreeRTOS) as well as board design and bring-up (analog, digital and high-speed design). \
+Free and Open-Source Software fanatic. Full-time Linux developer and user. All my projects rely on the foundation of open-source technologies. \
+Experienced manufacturing engineer preivously responsible for Material Flow and Battery Cell Manufacturing. \
 
 Former:
-Tesla, Inc. (Software Engineering @ Cell Manufacturing / Robotics Engineer @ In-house robotics)
-Dynamic Attractions Ltd.
-Electra Meccanica Vehicles Corp.
+- Tesla, Inc. (Software Engineering @ Cell Manufacturing / Robotics Engineer @ In-house robotics)
+- Dynamic Attractions Ltd.
+- Electra Meccanica Vehicles Corp.
 
 ## Languages:
 ![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)

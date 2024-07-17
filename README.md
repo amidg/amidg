@@ -1,9 +1,9 @@
 ## Who am I? 👨‍💻
 Delicate mechatronic engineer in automotive and robotics field, specialized in rapid prototyping, out-of-box innovation, and delivering the state-of-the-art scalable mechatronic, software and electronics designs. \
-Robotics engineering expert with a track record of delivery state-of-the-art robotics solutions for Tesla, Li Auto, Milwaukee, Compal and Dell. \
-Embedded systems geek with experience in firmware development (bare-metal and FreeRTOS) as well as board design and bring-up (analog, digital and high-speed design). \
+Robotics engineering expert with a track record of delivering custom solutions for Tesla, Li Auto, Milwaukee, Compal and Dell. \
+Embedded systems geek with experience in firmware development (bare-metal and FreeRTOS) as well as board design (analog, digital and high-speed design) and custom bring-up. \
 Free and Open-Source Software fanatic. Full-time Linux developer and user. All my projects rely on the foundation of open-source technologies. \
-Experienced manufacturing engineer preivously responsible for Material Flow and Battery Cell Manufacturing. \
+Experienced manufacturing engineer preivously responsible for Material Flow and Battery Cell Manufacturing.
 
 Former:
 - Tesla, Inc. (Software Engineering @ Cell Manufacturing / Robotics Engineer @ In-house robotics)

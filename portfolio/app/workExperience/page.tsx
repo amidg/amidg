@@ -1,9 +1,7 @@
 "use client";
 import { TabsDemo } from "@/components/TabsDemo";
-import { ThreeDCard } from "@/components/ThreeDCard";
-import experience from "@/data/experience";
 
-const WorkExperience = () => {
+const WorkExperiencePage = () => {
   return (
     <div className="w-full flex flex-col items-center justify-center gap-8">
       <div
@@ -25,4 +23,4 @@ const WorkExperience = () => {
   );
 };
 
-export default WorkExperience;
+export default WorkExperiencePage;

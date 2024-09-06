@@ -1,20 +1,12 @@
 "use client";
-import Navbar from "@/components/global/Navbar";
-import AboutSection from "./AboutSection";
 import LinkPreview from "@/components/LinkPreview";
-import Footer from "@/components/global/Footer";
-import Experience from "../(workExperience)/WorkExperience";
-import { InteractiveTabs } from "@/components/InteractiveTabs";
-import { TabsDemo } from "@/components/TabsDemo";
-import WorkExperience from "../(workExperience)/WorkExperience";
 import Projects from "../projects/page";
+import WorkExperiencePage from "../workExperience/page";
+import PageEducation from "../education/page";
 
 const About = () => {
   return (
     <main className="flex flex-col items-center justify-center gap-12">
-      <div className="pointer-events-none fixed inset-0 -z-40 h-full w-full overflow-hidden">
-        <div className="noice"></div>
-      </div>
       <div className="flex flex-col justify-center w-full max-w-4xl mt-[8rem] md:mt-[15rem] p-12 md:p-0 text-light-text dark:text-violet-50">
         <p className="font-medium text-2xl leading-relaxed md:text-xl md:leading-loose dark:text-text">
           Salut{" "}
@@ -57,8 +49,9 @@ const About = () => {
       </div>
       <div className="flex flex-col w-full justify-center items-center max-w-4xl mb-[6rem] space-x-0 space-y-6 md:flex-row md:space-y-0 md:justify-start md:space-x-3">
       </div>
-      <WorkExperience  />
+      <WorkExperiencePage />
       <Projects />
+      <PageEducation />
     </main>
   );
 };

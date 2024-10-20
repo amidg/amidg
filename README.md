@@ -6,6 +6,7 @@ Free and Open-Source Software fanatic. Full-time Linux developer and user. All m
 Experienced manufacturing engineer preivously responsible for Material Flow and Battery Cell Manufacturing.
 
 Former:
+- Industrial Next (Senior Robotics Software Engineer)
 - Tesla, Inc. (Software Engineering @ Cell Manufacturing / Robotics Engineer @ In-house robotics)
 - Dynamic Attractions Ltd.
 - Electra Meccanica Vehicles Corp.

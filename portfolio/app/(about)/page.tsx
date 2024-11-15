@@ -1,57 +1,86 @@
 "use client";
 import LinkPreview from "@/components/LinkPreview";
-import Projects from "../projects/page";
-import WorkExperiencePage from "../workExperience/page";
-import PageEducation from "../education/page";
+import ProjectsList from "../projects/ProjectsList";
+import { PageEducation } from "../timeline/page";
+import ExperienceSection from "../experience/page";
+import ConnectSection from "../connect/page";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const About = () => {
   return (
-    <main className="flex flex-col items-center justify-center gap-12">
-      <div className="flex flex-col justify-center w-full max-w-4xl mt-[8rem] md:mt-[15rem] p-12 md:p-0 text-light-text dark:text-violet-50">
-        <p className="font-medium text-2xl leading-relaxed md:text-xl md:leading-loose dark:text-text">
-          Salut{" "}
-          <span className="inline-block animate-wave -ml-1 mr-1 wave">👋🏻</span>{" "}
-          I&apos;m Yev Strilets a web development enthusiast{" "}
-          <span className="inline-block animate-levitate">🚀</span>
-        </p>
-        <p className="font-bold text-2xl leading-relaxed md:text-4xl md:leading-loose">
-          Crafting engaging web experiences.
-        </p>
-        <p className="font-bold text-2xl leading-relaxed md:text-4xl md:leading-loose">
-          Exploring development, UI/UX, and interactivity.
-        </p>
-        <div className="flex flex-row items-center justify-start">
-          <span className="font-medium text-2xl leading-relaxed md:text-xl md:leading-loose mr-1">
-            Get in touch via Email or see my work on
-            <LinkPreview
-              url="https://ui.aceternity.com"
-              className="mx-1 font-medium text-xl"
-            >
-              Github
-            </LinkPreview>
-            or {" "}
-          </span>
-          <span className="group/blur blur-sm filter transition-all duration-500 ease-in-out focus-within:text-gray-400 focus-within:blur-none hover:text-gray-100 hover:blur-none focus:text-gray-300 focus:blur-none text-gray-400">
-            <span className="font-medium text-2xl leading-relaxed md:text-xl md:leading-loose">
-              {" "}
-              find me on
-              <LinkPreview
-                url="https://ui.aceternity.com"
-                className="font-medium text-xl"
-              >
-                {" "}
-                platforms{" "}
-              </LinkPreview>
-              I don’t like using
-            </span>
-          </span>
+    <main className="flex flex-col items-center justify-center gap-2">
+      <div className="flex flex-col justify-center w-full max-w-3xl mt-[8rem] p-12 md:p-0 text-light-text dark:text-violet-50">
+        <div className="max-w-3xl w-full">
+          <div className="flex flex-row space-x-6">
+            <Avatar>
+              <AvatarImage src="/DmitriiAvatar.jpeg" />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+            <div className="flex flex-col">
+              <h2 className="text-base font-semibold">Dmitrii Gusev</h2>
+              <h2 className="text-[1rem] text-neutral-400">
+                Robotics Engineer && Open-source fanatic!
+              </h2>
+            </div>
+          </div>
+          <div className="mt-16 max-w-2xl">
+            <h1 className="text-base font-bold">About me</h1>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book.
+            </p>
+          </div>
+          <div className="mt-16 max-w-2xl space-y-4">
+            <h1 className="text-base font-bold">Now</h1>
+            <ul className="space-y-8">
+              <li className="flex items-center space-x-4">
+                <div>
+                  <FaArrowRightLong className="h-5 w-5 text-text" />
+                </div>
+                <p className="text-sm">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book.
+                </p>
+              </li>
+              <li className="flex items-center space-x-4">
+              <div>
+                  <FaArrowRightLong className="h-5 w-5 text-text" />
+                </div>
+                <p className="text-sm">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book.
+                </p>
+              </li>
+              <li className="flex items-center space-x-4">
+              <div>
+                  <FaArrowRightLong className="h-5 w-5 text-text" />
+                </div>
+                <p className="text-sm">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book.
+                </p>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div className="flex flex-col w-full justify-center items-center max-w-4xl mb-[6rem] space-x-0 space-y-6 md:flex-row md:space-y-0 md:justify-start md:space-x-3">
-      </div>
-      <WorkExperiencePage />
-      <Projects />
+      <div className="flex flex-col w-full justify-center items-center max-w-4xl mb-[6rem] space-x-0 space-y-6 md:flex-row md:space-y-0 md:justify-start md:space-x-3"></div>
+      <ExperienceSection />
+      <ProjectsList />
       <PageEducation />
+      <ConnectSection />
     </main>
   );
 };

@@ -1,43 +1,49 @@
 "use client";
 
-import React from "react";
+import { useParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { cardsByYear } from "@/data/projectData"; // Import your project data
+import { Card } from "@/types/projectTypes"; // Import Card type
+import NavigateBack from "@/components/navigationButtons/NavigateBack";
 
-const posts: { [key: string]: { title: string; content: string } } = {
-  "first-post": {
-    title: "The Dawn of Innovation",
-    content: "This is the first post content.",
-  },
-  "second-post": {
-    title: "The Digital Revolution",
-    content: "This is the second post content.",
-  },
-  "third-post": {
-    title: "The Art of Design",
-    content: "This is the third post content.",
-  },
-  "fourth-post": {
-    title: "The Power of Communication",
-    content: "This is the fourth post content.",
-  },
-  "fifth-post": {
-    title: "The Pursuit of Knowledge",
-    content: "This is the fifth post content.",
-  },
-  "sixth-post": {
-    title: "The Joy of Creation",
-    content: "This is the sixth post content.",
-  },
-  "seventh-post": {
-    title: "The Spirit of Adventure",
-    content: "This is the seventh post content.",
-  },
-};
+const ProjectSlug = () => {
+  const { projectsId } = useParams(); // Get the dynamic id (title) from URL
+  const [project, setProject] = useState<Card | undefined>(undefined);
+  const router = useRouter();
 
-const ProjectSlug = ({ params }: { params: { id: any } }) => {
+  useEffect(() => {
+    if (!projectsId) return; // If no id, return early
+
+    // Decode the URL component to handle encoded characters
+    const decodedTitle = decodeURIComponent(projectsId as string);
+
+    // Find the project by title
+    const foundProject = Object.values(cardsByYear)
+      .flat()
+      .find((card) => card.title === decodedTitle);
+
+    if (foundProject) {
+      setProject(foundProject);
+    } else {
+      // If project is not found, redirect to 404 or handle the error
+      router.push("/404");
+    }
+  }, [projectsId, router]);
+
+  if (!project) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <div className="w-[400px] h-[400px] bg-green-500">
-      Hello world
-      {params.id}
+    <div className="flex items-center justify-center w-full mt-[8rem] md:mt-[12rem]">
+      <div className="w-full max-w-3xl space-y-4">
+        <div className="flex-col mb-16">
+          <NavigateBack />
+          <h1 className="text-2xl font-bold">{project.title}</h1>
+        </div>
+        <p>{project.date}</p>
+        <p>{project.description}</p>
+      </div>
     </div>
   );
 };

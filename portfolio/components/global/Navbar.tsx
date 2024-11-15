@@ -7,8 +7,6 @@ import { BsGithub } from "react-icons/bs";
 import { BiLogoLinkedin } from "react-icons/bi";
 import { HiMenuAlt3, HiOutlineX } from "react-icons/hi";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import Image from "next/image";
-import ReadingBar from "../readingProgressBar/ReadingBar";
 import { DarkModeToggle } from "../DarkModeToggle";
 
 const navList = [
@@ -75,13 +73,13 @@ const Navbar = () => {
       className={`
         fixed w-full
         z-20 top-0 left-0
-        backdrop-filter backdrop-blur-sm bg-opacity-50
+        backdrop-filter backdrop-blur-sm bg-opacity-100
         transition-all duration-300 ease-in-out
-        bg-[#141B2D] border-b-[0.5px] border-[#1E2A45]
+        bg-[#060709] border-b-[0.5px] border-[#1E2A45]
         ${isSticky ? "h-[6rem]" : "h-[6rem] md:h-[8rem]"}`}
     >
       <div
-        className={`max-w-4xl flex flex-wrap items-center justify-between mx-auto transition-all duration-300 ease-in-out ${
+        className={`max-w-3xl flex flex-wrap items-center justify-between mx-auto transition-all duration-300 ease-in-out ${
           isSticky ? "pt-2 md:pt-1" : "pt-2 md:pt-6"
         }`}
       >
@@ -93,7 +91,7 @@ const Navbar = () => {
           flex 
           md:w-auto 
           md:order-2 
-          px-10 py-[1rem] mt-1
+          py-[1rem] mt-1
           transition-all duration-300 ease-in-out
           space-x-6
           `}
@@ -198,7 +196,6 @@ const Navbar = () => {
             ))}
         </div>
       )}
-      <ReadingBar />
     </nav>
   );
 };

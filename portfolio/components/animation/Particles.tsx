@@ -1,45 +1,73 @@
 import * as React from "react";
 import ParticleImage, {
+  ParticleForce,
   ParticleOptions,
   Vector,
   forces,
-  ParticleForce
 } from "react-particle-image";
 
-const particleOptions: ParticleOptions = {
-  filter: ({ x, y, image }) => {
-    // Get pixel
-    const pixel = image.get(x, y);
-    // Make a particle for this pixel if blue > 50 (range 0-255)
-    return pixel.b > 50;
-  },
-  color: ({ x, y, image }) => "#FFFFFF",
-  radius: () => Math.random() * 0.1 + 0.4,
-  mass: () => 30,
-  friction: () => 0.15,
-  initialPosition: ({ canvasDimensions }) => {
-    return new Vector(canvasDimensions.width / 2, canvasDimensions.height / 2);
-  }
-};
+interface ParticleProps {
+  imgSrc: string;
+  filterColor?: string;
+  logoScale?:number;
+  logoWidth?:number;
+  logoHeight?:number;
+  colorFunction?: (params: { x: number; y: number; image: any }) => string;
+}
 
-const motionForce = (x: number, y: number): ParticleForce => {
-  return forces.disturbance(x, y, 5);
-};
-
-export default function Particles() {
+export default function Particles({
+  imgSrc,
+  filterColor='white',
+  colorFunction,
+  logoScale=0.25,
+  logoWidth,
+  logoHeight=200,
+}: ParticleProps) {
+  const particleOptions: ParticleOptions = {
+    mass: () => 50,
+    radius: () => Math.random() * 0.01 + 0.4,
+    filter: ({ x, y, image }) => {
+      const pixel = image.get(x, y);
+      return pixel.r > 100;
+    },
+    color: colorFunction || (() => filterColor),
+    friction: () => 0.15,
+    initialPosition: ({ canvasDimensions }) => {
+      return new Vector(
+        canvasDimensions.width / 2,
+        canvasDimensions.height / 2
+      );
+    },
+  };
 
   return (
-    <ParticleImage
-      src={"/SFU_logo.png"}
-      width={250}
-      height={120}
-      scale={0.75}
-      entropy={8}
-      maxParticles={8000}
-      particleOptions={particleOptions}
-      mouseMoveForce={motionForce}
-      touchMoveForce={motionForce}
-      backgroundColor="#CC0633"
-    />
+    <div
+      style={{
+        filter: `drop-shadow(0 0 5px ${filterColor ? filterColor : "white"})`,
+        borderRadius: 100,
+        overflow: "hidden",
+        backgroundColor: '#060709'
+      }}
+    >
+      <div
+        style={{
+          filter: `drop-shadow(0 0 5px ${filterColor ? filterColor : "white"})`,
+        }}
+      >
+        <ParticleImage
+          width={logoWidth}
+          height={logoHeight}
+          scale={logoScale}
+          entropy={10}
+          maxParticles={6500}
+          backgroundColor="trasperant"
+          src={imgSrc}
+          mouseMoveForce={(x, y) => forces.disturbance(x, y, 20)}
+          touchMoveForce={(x, y) => forces.disturbance(x, y, 20)}
+          mouseDownForce={(x, y) => forces.disturbance(x, y, 20)}
+          particleOptions={particleOptions}
+        />
+      </div>
+    </div>
   );
 }

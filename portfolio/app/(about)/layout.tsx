@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import Timeline from "@/components/global/Timeline";
-import { landingTimelineSections } from '@/data/menuData'
+import { landingTimelineSections } from '@/data/menuData.js'
 
 export const metadata: Metadata = {
   title: "YevStrilets",

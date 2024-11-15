@@ -2,13 +2,14 @@ import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
-import { SlidingTabBar } from "@/components/global/SlidingTabBar";
 import { ThemeProvider } from "@/components/theme-provider";
 import "@theme-toggles/react/css/Expand.css";
 import Navbar from "@/components/global/Navbar";
 import Footer from "@/components/global/Footer";
+import { AppleStyleDock } from "@/components/sideMenu/apple-style-dock";
 
 const inter = Inter({ subsets: ["latin"] });
+
 
 export const metadata: Metadata = {
   title: "YevStrilets",
@@ -22,20 +23,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-main-light dark:bg-[#0f1521]`}>
+      <body className={`${inter.className} bg-main-light dark:bg-[#060709]`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
+          {/* <Navbar /> */}
           <div>
             {children}
             <Analytics />
           </div>
-          {/* <SlidingTabBar /> */}
           <Footer />
+          <AppleStyleDock />
         </ThemeProvider>
       </body>
     </html>

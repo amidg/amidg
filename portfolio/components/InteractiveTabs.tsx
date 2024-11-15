@@ -1,15 +1,15 @@
 "use client";
- 
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
- 
+
 type Tab = {
   title: string;
   value: string;
   content?: string | React.ReactNode | any;
 };
- 
+
 export const InteractiveTabs = ({
   tabs: propTabs,
   containerClassName,
@@ -25,7 +25,7 @@ export const InteractiveTabs = ({
 }) => {
   const [active, setActive] = useState<Tab>(propTabs[0]);
   const [tabs, setTabs] = useState<Tab[]>(propTabs);
- 
+
   const moveSelectedTabToTop = (idx: number) => {
     const newTabs = [...propTabs];
     const selectedTab = newTabs.splice(idx, 1);
@@ -33,9 +33,9 @@ export const InteractiveTabs = ({
     setTabs(newTabs);
     setActive(newTabs[0]);
   };
- 
+
   const [hovering, setHovering] = useState(false);
- 
+
   return (
     <>
       <div
@@ -67,7 +67,7 @@ export const InteractiveTabs = ({
                 )}
               />
             )}
- 
+
             <span className="relative block text-black dark:text-white">
               {tab.title}
             </span>
@@ -79,12 +79,12 @@ export const InteractiveTabs = ({
         active={active}
         key={active.value}
         hovering={hovering}
-        className={cn("mt-20", contentClassName)}
+        className={cn("mt-7", contentClassName)}
       />
     </>
   );
 };
- 
+
 export const FadeInDiv = ({
   className,
   tabs,
@@ -100,19 +100,19 @@ export const FadeInDiv = ({
     return tab.value === tabs[0].value;
   };
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-2/3">
       {tabs.map((tab, idx) => (
         <motion.div
           key={tab.value}
           layoutId={tab.value}
           style={{
-            scale: 1 - idx * 0.1,
-            top: hovering ? idx * -50 : 0,
+            scale: 1 + -idx * 0.1,
+            top: hovering ? idx * 50 : 0,
             zIndex: -idx,
-            opacity: idx < 3 ? 1 - idx * 0.1 : 0,
+            opacity: idx < 3 ? 1 + idx * 0.3 : 0,
           }}
           animate={{
-            y: isActive(tab) ? [0, 40, 0] : 0,
+            y: isActive(tab) ? [0, -10, 0] : 0,
           }}
           className={cn("w-full h-full absolute top-0 left-0", className)}
         >

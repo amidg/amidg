@@ -13,8 +13,8 @@ const Footer = () => {
     }
   };
   return (
-    <footer className="bg-transperant mt-28 bg-[#141B2D] border-t-[0.5px] border-[#1E2A45]">
-      <div className="mx-auto w-full max-w-4xl p-4 py-6 lg:py-8 text-white">
+    <footer className="bg-transperant mt-28 bg-[#060709] border-t-[0.5px] border-[#1E2A45]">
+      <div className="mx-auto w-full max-w-3xl p-4 py-6 lg:py-8 text-white">
         <div className="md:flex md:justify-between">
           <div className="grid grid-cols-2 space-x-10 sm:gap-6 sm:grid-cols-3">
             <div>
@@ -33,27 +33,33 @@ const Footer = () => {
                   </li>
                 </Link>
                 <Link href="/contact">
-                  <li className="mb-4 cursor-pointer hover:underline hover:underline-offset-4">Contact</li>
+                  <li className="mb-4 cursor-pointer hover:underline hover:underline-offset-4">
+                    Contact
+                  </li>
                 </Link>
               </ul>
             </div>
             <div>
               <ul className="text-violet-50 dark:text-gray-400 font-medium">
                 <Link href="https://github.com/EStrilets" target="_blank">
-                  <li className="mb-4 cursor-pointer hover:underline hover:underline-offset-4">Github</li>
+                  <li className="mb-4 cursor-pointer hover:underline hover:underline-offset-4">
+                    Github
+                  </li>
                 </Link>
                 <Link
                   href="https://www.linkedin.com/in/yev-strilets/"
                   target="_blank"
                 >
-                  <li className="mb-4 cursor-pointer hover:underline hover:underline-offset-4">Linkedin</li>
+                  <li className="mb-4 cursor-pointer hover:underline hover:underline-offset-4">
+                    Linkedin
+                  </li>
                 </Link>
               </ul>
             </div>
           </div>
           <div className="mb-6 md:mb-0">
             <Link href="/">
-              <Image src="/logo.svg" alt="logo" width={40} height={40} />
+              <p className="font-bold">Dmitrii Gusev</p>
             </Link>
           </div>
         </div>

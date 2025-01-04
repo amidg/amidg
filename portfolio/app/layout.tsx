@@ -10,7 +10,6 @@ import { AppleStyleDock } from "@/components/sideMenu/apple-style-dock";
 
 const inter = Inter({ subsets: ["latin"] });
 
-
 export const metadata: Metadata = {
   title: "YevStrilets",
   description: "Created by Yevhenii Strilets",
@@ -30,13 +29,16 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* <Navbar /> */}
-          <div>
-            {children}
-            <Analytics />
+          <div className="min-h-screen flex flex-col">
+            <main className="flex-grow">
+              {children}
+              <Analytics />
+            </main>
+            <div className="relative">
+              <Footer />
+              <AppleStyleDock />
+            </div>
           </div>
-          <Footer />
-          <AppleStyleDock />
         </ThemeProvider>
       </body>
     </html>

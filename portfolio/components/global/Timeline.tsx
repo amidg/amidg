@@ -57,16 +57,8 @@ const Timeline: React.FC<TimelineProps> = ({ menuList }) => {
   const handleScroll = useCallback(() => {
     handleScrollSection();
     handleScrollMenu();
-    setIsTimelineVisible(window.scrollY > menuList.scrollOffset); // Updated scroll amount
-  }, [handleScrollMenu, handleScrollSection]);
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    handleScrollSection(); // Initial call to update state based on initial scroll position
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [handleScroll]);
+    setIsTimelineVisible(window.scrollY > menuList.scrollOffset);
+  }, [handleScrollMenu, handleScrollSection, menuList.scrollOffset]); // Added menuList.scrollOffset to dependencies
 
   useEffect(() => {
     const currentIndex = menuList.sections.findIndex(
@@ -74,6 +66,15 @@ const Timeline: React.FC<TimelineProps> = ({ menuList }) => {
     );
     setSelected(currentIndex);
   }, [activeSection, menuList.sections]);
+
+  // Fix involves simply adding handleScrollSection to the dependency array of useEffect
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    handleScrollSection(); // Initial call to update state based on initial scroll position
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll, handleScrollSection]); // Added handleScrollSection to dependencies
 
   const calculateScale = (index: number) => {
     if (hoveredIndex === null) return 0.45;
@@ -90,8 +91,14 @@ const Timeline: React.FC<TimelineProps> = ({ menuList }) => {
   };
 
   return (
-    <div className={`fixed top-0 mt-[8rem] tranlate-y-1/2 -ml-24
-    ${isTimelineVisible ? "visible opacity-100 transition-opacity duration-300" : "invisible opacity-0 transition-opacity duration-300"}`}>
+    <div
+      className={`fixed top-0 mt-[8rem] tranlate-y-1/2 -ml-24
+    ${
+      isTimelineVisible
+        ? "visible opacity-100 transition-opacity duration-300"
+        : "invisible opacity-0 transition-opacity duration-300"
+    }`}
+    >
       <div className="flex h-[500px] w-[350px] items-center justify-center">
         <div className="flex flex-col">
           {menuList.sections.map((section, i) => {

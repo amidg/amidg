@@ -4,7 +4,7 @@ import ProjectsList from "./ProjectsList";
 
 export default function Projects() {
   return (
-    <div className="flex flex-col items-center justify-center mt-[8rem] md:mt-[12rem]">
+    <div className="flex flex-col items-center justify-center mt-[5rem]">
       <ProjectsList
         title="Personal Projects"
         useSlice={false}

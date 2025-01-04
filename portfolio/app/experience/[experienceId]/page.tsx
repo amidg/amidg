@@ -29,14 +29,14 @@ const ExperienceSlug = () => {
       // If project is not found, redirect to 404 or handle the error
       router.push("/404");
     }
-  }, [experience, router]);
+  }, [experience, router, experienceId]);
 
   if (!experience) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div className="flex items-center justify-center w-full mt-[10rem] md:mt-[12rem]">
+    <div className="flex items-center justify-center w-full mt-[5rem]">
       <div className="w-full max-w-3xl space-y-4">
         <div className="flex-col mb-16">
         <TooltipProvider delayDuration={100}>

@@ -3870,11 +3870,6 @@ react-icons@^4.10.1:
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.10.1.tgz#3f3b5eec1f63c1796f6a26174a1091ca6437a500"
   integrity sha512-/ngzDP/77tlCfqthiiGNZeYFACw85fUjZtLbedmJ5DTlNDIwETxhwBzdOJ21zj4iJdvc0J3y7yOsX3PpxAJzrw==
 
-react-image-particles@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/react-image-particles/-/react-image-particles-1.0.8.tgz#1940f5d4321d4795b68dc521e6a86963f8eb413f"
-  integrity sha512-1uXit7dpmaqrQm24qvf/OaAoIsZINT0A/7HY5YKSrfm9elMMaEWwfBM9QPbqwloh8I3PfZgpEdyzF0EjO4h31g==
-
 react-intersection-observer@^9.4.3, react-intersection-observer@^9.5.2:
   version "9.5.2"
   resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-9.5.2.tgz#f68363a1ff292323c0808201b58134307a1626d0"

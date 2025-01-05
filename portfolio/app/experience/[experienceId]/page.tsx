@@ -4,7 +4,7 @@ import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa6";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { workExperienceCards } from "@/data/workExperience";
+import { workExperienceCards } from "@/data/work-experience";
 import { experienceCard } from "@/types/workExperienceTypes";
 
 const ExperienceSlug = () => {

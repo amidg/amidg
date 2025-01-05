@@ -13,7 +13,7 @@ const Footer = () => {
     }
   };
   return (
-    <footer className="bg-transperant mt-28 bg-[#060709] border-t-[0.5px] border-[#1E2A45]">
+    <footer className="bg-transperant mt-28 dark:bg-[#060709] border-t-[0.5px] border-[#1E2A45]">
       <div className="mx-auto w-full max-w-3xl p-4 py-6 lg:py-8 text-white">
         <div className="md:flex md:justify-between">
           <div className="grid grid-cols-2 space-x-10 sm:gap-6 sm:grid-cols-3">
@@ -64,7 +64,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="sm:flex sm:items-center sm:justify-between text-violet-50 mt-5">
-          © 2023 Yevhenii Strilets —— Vancouver, Canada
+          © 2025 Dmitrii Gusev —— Vancouver, Canada
         </div>
       </div>
     </footer>

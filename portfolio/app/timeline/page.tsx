@@ -1,6 +1,7 @@
 
 import Image from "next/image";
 import { Timeline } from "@/components/ui/timeline";
+import { websiteContent } from '@/data/portfolio-content';
 
 const data = [
   {
@@ -161,7 +162,7 @@ export default function PageEducation() {
       "
       >
         <div className="text-light-text dark:text-white mb-16">
-          <h2 className="text-xl font-bold">Chronology</h2>
+          <h2 className="text-xl font-bold">{websiteContent.chronology.title}</h2>
         </div>
 
         <Timeline data={data} />

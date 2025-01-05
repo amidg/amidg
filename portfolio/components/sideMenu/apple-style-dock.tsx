@@ -31,7 +31,7 @@ const data = [
     icon: (
       <LuFileText className="h-full w-full text-neutral-600 dark:text-neutral-300" />
     ),
-    href: "/yevhenii_strilets_resume2023.pdf",
+    href: "/Dmitrii_Gusev_Resume.pdf",
   },
   {
     title: "Experience",

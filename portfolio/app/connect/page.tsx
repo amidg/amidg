@@ -22,7 +22,7 @@ const ConnectSection = () => {
           <p>
             Follow me on X, view my code and open-source projects on Github,
             explore my Read.cv profile, or email me directly
-            atjulien.thibeaut@gmail.com.
+            gusevtech@gmail.com.
           </p>
         </div>
         <div className="w-full max-w-3xl">

@@ -6,11 +6,12 @@ import {
   CarouselIndicatorScroll,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { workExperienceEntries } from "@/data/workExperience";
+import { workExperienceEntries } from "@/data/work-experience";
 import { FaLocationDot } from "react-icons/fa6";
 import Particles from "@/components/animation/Particles";
 import NavigateToOtherPage from "@/components/navigationButtons/NavigateToOtherPage";
 import InfoButton from "@/components/navigationButtons/infoButton";
+import { websiteContent } from '@/data/portfolio-content';
 
 export default function ExperienceSection() {
   const router = useRouter();
@@ -33,7 +34,7 @@ export default function ExperienceSection() {
       "
       >
         <div className="text-light-text dark:text-white mb-16">
-          <h2 className="text-xl font-bold">Work Experience</h2>
+          <h2 className="text-xl font-bold">{websiteContent.workExperience.title}</h2>
         </div>
         <Carousel className="w-full max-w-3xl mb-20">
           <CarouselContent>

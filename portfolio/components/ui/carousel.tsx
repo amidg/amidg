@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
  
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { workExperienceEntries, workExperienceValue } from "@/data/workExperience";
+import { workExperienceEntries, workExperienceValue } from "@/data/work-experience";
 
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>

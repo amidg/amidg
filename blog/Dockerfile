@@ -15,14 +15,15 @@ RUN yarn build
 
 # Creating final production image
 FROM node:20-alpine
-RUN apk add --no-cache vips-dev
+ENV PATH=/opt/node_modules/.bin:$PATH
 ENV NODE_ENV=production
+
+RUN apk add --no-cache vips-dev
 WORKDIR /opt/
 COPY --from=build /opt/node_modules ./node_modules
+COPY --from=build /opt/package.json ./package.json
 WORKDIR /opt/app
 COPY --from=build /opt/app ./
-ENV PATH=/opt/node_modules/.bin:$PATH
-
 RUN chown -R node:node /opt/app
 USER node
 EXPOSE 1337

@@ -1,0 +1,26 @@
+name: Build Strapi blog container
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build_generic_containers:
+    uses: amidg/workflows/.github/workflows/build_container.yml@main
+    strategy:
+      matrix:
+        container:
+          - name: strapi
+            path: ./blog
+            file: Dockerfile
+    with:
+      container_name: ${{ matrix.container.name }}
+      container_path: ${{ matrix.container.path }}
+      container_file: ${{ matrix.container.file }}
+    secrets:
+      PODMAN_TOKEN: ${{ secrets.PODMAN_TOKEN }}
+

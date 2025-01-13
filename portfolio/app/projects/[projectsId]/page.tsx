@@ -2,7 +2,7 @@
 
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { cardsByYear } from "@/data/projectData"; // Import your project data
+import { cardsByYear } from "@/data/project-data"; // Import your project data
 import { Card } from "@/types/projectTypes"; // Import Card type
 import NavigateBack from "@/components/navigationButtons/NavigateBack";
 
@@ -35,7 +35,7 @@ const ProjectSlug = () => {
   }
 
   return (
-    <div className="flex items-center justify-center w-full mt-[8rem] md:mt-[12rem]">
+    <div className="flex items-center justify-center w-full mt-[5rem]">
       <div className="w-full max-w-3xl space-y-4">
         <div className="flex-col mb-16">
           <NavigateBack />

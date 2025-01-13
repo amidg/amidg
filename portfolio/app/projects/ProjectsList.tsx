@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { ProjectsListProps } from "@/types/projectTypes";
-import { cardsByYear } from "@/data/projectData";
+import { cardsByYear } from "@/data/project-data";
 import NavigateToOtherPage from "@/components/navigationButtons/NavigateToOtherPage";
 import NavigateBack from "@/components/navigationButtons/NavigateBack";
 

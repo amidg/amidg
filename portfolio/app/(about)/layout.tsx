@@ -4,8 +4,8 @@ import Timeline from "@/components/global/Timeline";
 import { landingTimelineSections } from '@/data/menu-data'
 
 export const metadata: Metadata = {
-  title: "YevStrilets",
-  description: "Created by Yevhenii Strilets",
+  title: "Dmitrii Gusev",
+  description: "Created by Dmitrii Gusev",
 };
 
 export default function RootLayout({

@@ -4,15 +4,14 @@ import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "@/components/theme-provider";
 import "@theme-toggles/react/css/Expand.css";
-import Navbar from "@/components/global/Navbar";
 import Footer from "@/components/global/Footer";
 import { AppleStyleDock } from "@/components/sideMenu/apple-style-dock";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "YevStrilets",
-  description: "Created by Yevhenii Strilets",
+  title: "Dmitrii Gusev",
+  description: "Created by Dmitrii Gusev",
 };
 
 export default function RootLayout({

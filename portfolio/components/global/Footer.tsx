@@ -27,7 +27,7 @@ const Footer = () => {
                     About
                   </li>
                 </Link>
-                <Link href="/yevhenii_strilets_resume2023.pdf" target="blank">
+                <Link href="/Dmitrii_Gusev_Resume.pdf" target="blank">
                   <li className="mb-4 cursor-pointer hover:underline hover:underline-offset-4">
                     Resume
                   </li>

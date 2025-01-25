@@ -1,0 +1,36 @@
+services:
+  # base strapi
+  strapi_base: &strapi_base
+    env_file: .env
+    # use for debugging
+    # keep container permanently running in shell
+    #command: tail -F anything
+    environment:
+      DATABASE_CLIENT: ${DATABASE_CLIENT}
+      DATABASE_HOST: strapiDB
+      DATABASE_PORT: ${DATABASE_PORT}
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
+      APP_KEYS: ${APP_KEYS}
+      NODE_ENV: ${NODE_ENV}
+    volumes:
+    #  # some files from the strapi documentation are already provided here:
+    #  # https://github.com/amidg/amidg/blob/master/blog/Dockerfile
+    #  # These files are:
+    #  #- ./package.json:/opt/package.json
+    #  # - ./yarn.lock:/opt/yarn.lock
+    #  #- ./config:/opt/app/config
+    #  #- ./src:/opt/app/src
+    #  #- ./public/uploads:/opt/app/public/uploads
+      - ./.env:/opt/app/.env
+    ports:
+      - "1337:1337"
+    networks:
+      - strapi
+    depends_on:
+      - strapiDB
+    restart: unless-stopped
+    stop_grace_period: 5s # before SIGKILL

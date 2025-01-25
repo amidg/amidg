@@ -38,7 +38,7 @@ services:
     container_name: strapiDB
     restart: unless-stopped
     env_file: .env
-    image: postgres:12.0-alpine
+    image: postgres:17.0-alpine
     environment:
       POSTGRES_USER: ${DATABASE_USERNAME}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
@@ -49,7 +49,7 @@ services:
       # if you want to use a bind folder
       #- ./data:/var/lib/postgresql/data/
     ports:
-      - "5432:5432"
+      - "5433:5432"
     networks:
       - strapi
 

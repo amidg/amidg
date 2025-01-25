@@ -12,7 +12,10 @@ COPY . .
 RUN npm run build
 
 # Creating final production image
-FROM node:21-alpine
+FROM node:21-alpine AS base
+ENV PATH=/opt/node_modules/.bin:$PATH
+ENV NODE_ENV=production
+
 RUN apk add --no-cache vips-dev
 ARG NODE_ENV=production
 WORKDIR /opt/

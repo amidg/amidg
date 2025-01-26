@@ -1,6 +1,4 @@
 "use client";
-import { Card } from "@/components/ui/card";
-import ContactForm from "./ContactForm";
 
 const ConnectSection = () => {
   return (
@@ -24,11 +22,6 @@ const ConnectSection = () => {
             explore my Read.cv profile, or email me directly
             gusevtech@gmail.com.
           </p>
-        </div>
-        <div className="w-full max-w-3xl">
-          <Card className="p-6">
-            <ContactForm />
-          </Card>
         </div>
       </div>
     </div>

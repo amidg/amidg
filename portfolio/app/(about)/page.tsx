@@ -10,7 +10,7 @@ import { websiteContent } from '@/data/portfolio-content';
 
 const About = () => {
   return (
-    <div className="flex flex-col items-center justify-center gap-2">
+    <div className="flex flex-col items-center justify-center gap-2" id='#about-section'>
       <div className="flex flex-col justify-center w-full max-w-3xl mt-[5rem] p-12 md:p-0 text-light-text dark:text-violet-50">
         <div className="max-w-3xl w-full">
           <div className="flex flex-row space-x-6">

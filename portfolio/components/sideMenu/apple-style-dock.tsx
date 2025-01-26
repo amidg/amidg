@@ -41,14 +41,6 @@ const data = [
     href: "/experience",
   },
   {
-    title: "Contact",
-    icon: (
-      <LuMail className="h-full w-full text-neutral-600 dark:text-neutral-300" />
-    ),
-    href: `${websiteContent.contact.email}`,
-    external: true 
-  },
-  {
     title: "Theme",
     icon: <DarkModeToggle />,
     href: null, // No href for theme toggle

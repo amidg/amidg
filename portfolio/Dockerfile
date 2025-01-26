@@ -1,4 +1,7 @@
-FROM node:20-alpine AS base
+FROM node:18
 WORKDIR /app
-COPY package*.json yarn.lock ./
+COPY package*.json ./
 RUN yarn install
+COPY . .
+EXPOSE 3000
+CMD yarn run dev

@@ -9,7 +9,7 @@ services:
       context: ./portfolio
       dockerfile: Dockerfile
     working_dir: /app
-    command: ["sh", "-c", "mv /tmp/node_modules /app && yarn run dev"]
+    command: ["sh", "-c", "rm -rf /app/node_modules && mv /tmp/node_modules /app && yarn run dev"]
     privileged: true
     ports:
       - "3000:3000"

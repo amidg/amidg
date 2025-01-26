@@ -9,11 +9,11 @@ services:
       context: ./portfolio
       dockerfile: Dockerfile
       target: base
-    entrypoint: yarn run dev
+    command: yarn run dev
     ports:
       - "3000:3000"
     volumes:
-      - ./portfolio:/app
+      - ./portfolio:/website:z
 
   # blog
   strapi:
@@ -29,6 +29,7 @@ services:
     container_name: strapi-dev
     profiles:
       - dev
+      - strapi-dev
     extends:
       file: base.yml
       service: strapi_base
@@ -37,17 +38,18 @@ services:
       dockerfile: Dockerfile
       target: base
     volumes:
-      - ./blog/package.json:/opt/package.json
-      - ./blog/yarn.lock:/opt/yarn.lock
-      - ./blog/config:/opt/app/config
-      - ./blog/src:/opt/app/src
-      - ./blog/public/uploads:/opt/app/public/uploads
+      - ./blog/package.json:/opt/package.json:z
+      - ./blog/yarn.lock:/opt/yarn.lock:z
+      - ./blog/config:/opt/app/config:z
+      - ./blog/src:/opt/app/src:z
+      - ./blog/public/uploads:/opt/app/public/uploads:z
 
   # blog DB
   strapiDB:
     profiles:
       - deploy
       - dev
+      - strapi-dev
     container_name: strapiDB
     restart: unless-stopped
     env_file: .env

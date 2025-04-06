@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_blocks_connect_sections",
+  "info": {
+    "displayName": "ConnectSection"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "github": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.link"
+    },
+    "resume": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.link"
+    },
+    "twitter": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.link"
+    }
+  }
+}

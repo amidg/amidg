@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_blocks_footer_sections",
+  "info": {
+    "displayName": "FooterSection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "copyright": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "github": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.link"
+    },
+    "resume": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.link"
+    },
+    "linkedin": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.link"
+    },
+    "aboutText": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

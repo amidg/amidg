@@ -1,0 +1,30 @@
+{
+    "collectionName": "components_blocks_chronology_sections",
+    "info": {
+        "displayName": "ChronologySection"
+    },
+    "options": {},
+    "attributes": {
+        "year": {
+            "type": "integer",
+            "unique": true
+        },
+        "title": {
+            "type": "string"
+        },
+        "description": {
+            "type": "richtext"
+        },
+        "order": {
+            "type": "integer",
+            "unique": true
+        },
+        "images": {
+            "allowedTypes": [
+                "images"
+            ],
+            "type": "media",
+            "multiple": true
+        }
+    }
+}

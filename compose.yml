@@ -1,0 +1,22 @@
+services:
+  # strapi blog
+  strapi:
+    #image: strapi/strapi
+    build:
+      context: ./server
+      dockerfile: Containerfile
+      target: dev
+    container_name: amidg_blog_dev
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./server:/opt/app # mount source code
+      - ./blog/data.db:/opt/app/.tmp/data.db # mount db
+      - /opt/app/node_modules # keep node modules
+    ports:
+      - 1337:1337
+    env_file:
+      - ./server/.env
+    environment:
+      NODE_ENV: development
+    stop_grace_period: 5s # before SIGKILL

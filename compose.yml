@@ -1,14 +1,24 @@
 services:
-  # strapi blog
-  strapi:
-    #image: strapi/strapi
-    build:
-      context: ./server
-      dockerfile: Containerfile
-      target: dev
-    container_name: amidg_blog_dev
+  base: &base
+    profiles:
+      - null_profile
     stdin_open: true
     tty: true
+    stop_grace_period: 5s # before SIGKILL
+
+  # blog
+  strapi:
+    <<: *base
+    profiles:
+      - strapi
+      - all
+    build:
+      context: .
+      dockerfile: Containerfile
+      args:
+        PROJECT_DIR: server
+    container_name: amidg_blog
+    hostname: amidg_strapi
     volumes:
       - ./server:/opt/app # mount source code
       - ./blog/data.db:/opt/app/.tmp/data.db # mount db
@@ -19,4 +29,33 @@ services:
       - ./server/.env
     environment:
       NODE_ENV: development
-    stop_grace_period: 5s # before SIGKILL
+    networks:
+      - amidg-website-network
+
+  # blog
+  website:
+    <<: *base
+    profiles:
+      - frontend
+      - all
+    build:
+      context: .
+      dockerfile: Containerfile
+      args:
+        PROJECT_DIR: client
+    container_name: amidg_website
+    hostname: amidg_frontend
+    volumes:
+      - ./client:/opt/app # mount source code
+      - /opt/app/node_modules # keep node modules
+    ports:
+      - 3000:3000
+    environment:
+      NODE_ENV: development
+      NEXT_PUBLIC_STRAPI_URL: http://strapi:1337
+    networks:
+      - amidg-website-network
+
+networks:
+  amidg-website-network:
+    driver: bridge

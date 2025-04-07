@@ -172,6 +172,34 @@ export async function getProjects() {
   }
 }
 
+// One project
+export async function getProjectBySlug(slug: string) {
+  console.log("Getting project with slug:", slug);
+  
+  try {
+    // Use the fetchAPI helper with the appropriate filter
+    const data = await fetchAPI('projects', {
+      'filters[slug][$eq]': slug,
+      'populate': '*'
+    });
+    
+    console.log("Project data structure:", 
+                data ? `Has data: ${!!data.data}, Items: ${data.data?.length || 0}` : "No data returned");
+    
+    // Check if data exists and has at least one item
+    if (!data?.data || data.data.length === 0) {
+      console.warn(`No project found with slug: ${slug}`);
+      return null;
+    }
+    
+    // Return the first matching item (should be only one with that slug)
+    return data.data[0];
+  } catch (error) {
+    console.error(`Error in getProjectBySlug for slug ${slug}:`, error);
+    return null;
+  }
+}
+
 export async function getWorkExperienceBySlug(slug: string) {
     console.log("Getting work experience with slug:", slug);
     

@@ -1,5 +1,21 @@
 # DEV NOTES
-`compose.yml` provided here targets podman and Fedora Linux, thus docker compatibility is not guaranteed
+## How to run/develop?
+This setup can use docker or podman.
+
+Start everything:
+```bash
+docker compose --profile all up -d
+```
+
+Start strapi blog only using the following:
+```bash
+docker compose --profile blog up -d
+```
+
+Start frontend only using the following:
+```bash
+docker compose --profile frontend up -d
+```
 
 ## Prereqs:
 Requires `.env` file of the following structure:
@@ -39,26 +55,4 @@ node -e "console.log(require('crypto').randomBytes(16).toString('base64'));"
 OR
 
 openssl rand -base64 16
-```
-
-## How to start development:
-To start in detached mode do `up -d`. To kill containers do:
-```
-podman compose --profile NAME down
-```
-
-Basic commands are shown below:
-### Strapi + Website:
-```
-podman compose --profile dev up --build
-```
-
-### Portfolio ONLY:
-```
-podman compose --profile web-dev up --build
-```
-
-### Blog ONLY:
-```
-podman compose --profile strapi-dev up --build
 ```

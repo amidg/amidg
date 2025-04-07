@@ -18,7 +18,7 @@ services:
       args:
         PROJECT_DIR: server
     container_name: amidg_blog
-    hostname: amidg_strapi
+    hostname: amidg_blog
     volumes:
       - ./server:/opt/app # mount source code
       - ./blog/data.db:/opt/app/.tmp/data.db # mount db
@@ -52,7 +52,7 @@ services:
       - 3000:3000
     environment:
       NODE_ENV: development
-      NEXT_PUBLIC_STRAPI_URL: http://strapi:1337
+      NEXT_PUBLIC_STRAPI_URL: http://amidg_blog:1337
     networks:
       - amidg-website-network
 

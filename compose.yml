@@ -10,7 +10,7 @@ services:
   strapi:
     <<: *base
     profiles:
-      - strapi
+      - blog
       - all
     build:
       context: .

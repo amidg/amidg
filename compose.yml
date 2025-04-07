@@ -52,7 +52,7 @@ services:
       - 3000:3000
     environment:
       NODE_ENV: development
-      NEXT_PUBLIC_STRAPI_URL: http://strapi:1337
+      NEXT_PUBLIC_STRAPI_URL: http://amidg_strapi:1337
     networks:
       - amidg-website-network
 

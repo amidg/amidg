@@ -1,9 +1,11 @@
-import React from 'react'
+import ProjectListWrapper from "@/components/wrappers/ProjectsListWrapper";
+import { getProjects } from "@/lib/api";
 
-export default function page() {
+export default async function page() {
+
+  const projectsData = await getProjects();
+
   return (
-    <div>
-      Hello world
-    </div>
-  )
+    <ProjectListWrapper initialData={projectsData}  />
+  );
 }

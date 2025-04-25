@@ -47,7 +47,7 @@ services:
     hostname: amidg_frontend
     volumes:
       - ./client:/opt/app # mount source code
-      - /opt/app/node_modules # keep node modules
+      # - /opt/app/node_modules # keep node modules
     ports:
       - 3000:3000
     environment:

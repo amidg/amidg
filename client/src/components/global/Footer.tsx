@@ -33,8 +33,8 @@ const Footer = async () => {
   ];
 
   return (
-    <footer className="bg-white mt-28 dark:bg-[#060709] border-t-[0.5px] border-gray-200 dark:border-[#1E2A45] py-10">
-      <div className="mx-auto w-full max-w-3xl px-4">
+    <footer className="footer bg-white mt-28 border-t-[0.5px] border-gray-200 dark:border-[#1E2A45] py-10">
+      <div className="mx-auto w-full max-w-2xl">
         {/* Top section with name */}
         <div className="text-center mb-8 md:mb-0 md:hidden">
           <Link href="/">

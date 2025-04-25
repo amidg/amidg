@@ -103,21 +103,32 @@ export async function getBlogPosts() {
   }
 }
 
+
 export async function getBlogPost(slug: string) {
-  console.log("Getting blog post with slug:", slug);
-  const data = await fetchAPI(`blogs/${slug}`, {
-    populate: ['featured_image', 'category', 'author.avatar', 'content', 'seo'],
-  });
-  
-  // Apply defaults if data is missing
-  if (!data?.data) {
+  try {
+    const data = await fetchAPI('blogs', {
+      'filters[slug][$eq]': slug,
+      'populate': '*'
+    });
+    
+    // console.log("Work experience data structure:", 
+    //             data ? `Has data: ${!!data.data}, Items: ${data.data?.length || 0}` : "No data returned");
+    if (!data?.data || data.data.length === 0) {
+      console.warn(`No blogs found with slug: ${slug}`);
+      return null;
+    }
+    
+    // Return the first matching item (should be only one with that slug)
+    return data.data[0];
+  } catch (error) {
+    console.error(`Error in getBlogPost for slug ${slug}:`, error);
     return null;
   }
-  
-  return data.data;
 }
 
+
 // Work Experiences
+
 export async function getWorkExperiences() {
     console.log("Getting work experiences - sorted by order field");
     
@@ -145,7 +156,31 @@ export async function getWorkExperiences() {
     }
   }
 
-  // All Projects
+
+  export async function getWorkExperienceBySlug(slug: string) {
+    try {
+      const data = await fetchAPI('work-experiences', {
+        'filters[slug][$eq]': slug,
+        'populate': '*'
+      });
+      
+      // console.log("Work experience data structure:", 
+      //             data ? `Has data: ${!!data.data}, Items: ${data.data?.length || 0}` : "No data returned");
+      if (!data?.data || data.data.length === 0) {
+        console.warn(`No work experience found with slug: ${slug}`);
+        return null;
+      }
+      
+      // Return the first matching item (should be only one with that slug)
+      return data.data[0];
+    } catch (error) {
+      console.error(`Error in getWorkExperienceBySlug for slug ${slug}:`, error);
+      return null;
+    }
+  }
+
+
+// All Projects
 
 export async function getProjects() {
   try {
@@ -164,7 +199,7 @@ export async function getProjects() {
       return { data: [], meta: { pagination: { page: 1, pageSize: 10, pageCount: 0, total: 0 } } };
     }
     
-    return data;
+    return data.data;
   } catch (error) {
     console.error("Error in getProjects:", error);
     // Return a default structure to prevent breaking the UI
@@ -172,33 +207,54 @@ export async function getProjects() {
   }
 }
 
-export async function getWorkExperienceBySlug(slug: string) {
-    console.log("Getting work experience with slug:", slug);
+export async function getProjectBySlug(slug: string) {
+  console.log("Getting project with slug:", slug);
+  
+  try {
+    // Use the fetchAPI helper with the appropriate filter
+    const data = await fetchAPI('projects', {
+      'filters[slug][$eq]': slug,
+      'populate': '*'
+    });
     
-    try {
-      // Use the fetchAPI helper with the appropriate filter
-      const data = await fetchAPI('work-experiences', {
-        'filters[slug][$eq]': slug,
-        'populate': '*'
-      });
-      
-      console.log("Work experience data structure:", 
-                  data ? `Has data: ${!!data.data}, Items: ${data.data?.length || 0}` : "No data returned");
-      
-      // Check if data exists and has at least one item
-      if (!data?.data || data.data.length === 0) {
-        console.warn(`No work experience found with slug: ${slug}`);
-        return null;
-      }
-      
-      // Return the first matching item (should be only one with that slug)
-      return data.data[0];
-    } catch (error) {
-      console.error(`Error in getWorkExperienceBySlug for slug ${slug}:`, error);
+    console.log("Projects data structure:", 
+                data ? `Has data: ${!!data.data}, Items: ${data.data?.length || 0}` : "No data returned");
+    
+    // Check if data exists and has at least one item
+    if (!data?.data || data.data.length === 0) {
+      console.warn(`No project found with slug: ${slug}`);
       return null;
     }
+    
+    // Return the first matching item (should be only one with that slug)
+    return data.data[0];
+  } catch (error) {
+    console.error(`Error in getProjectBySlug for slug ${slug}:`, error);
+    return null;
   }
+}
 
+export async function getRecentProjects() {
+  try {
+    // Directly call the projects/recent endpoint
+    const data = await fetchAPI('projects/recent');
+    
+    console.log("Recent projects data structure:", 
+                data ? `Has data: ${!!data.data}` : "No data returned");
+    
+    // Apply defaults if data is missing
+    if (!data?.data) {
+      console.warn("No recent projects data found, returning empty object");
+      return { data: {} };
+    }
+    
+    return data;
+  } catch (error) {
+    console.error("Error in getRecentProjects:", error);
+    // Return a default structure to prevent breaking the UI
+    return { data: {} };
+  }
+}
 
 // Categories
 export async function getCategories() {
@@ -236,12 +292,15 @@ export async function getFooterData() {
   return footerBlock;
 } 
 
-export function getStrapiMedia(media: { url: string }) {
-  if (!media) return null;
+export function getStrapiMedia(media:any) {
+  if (!media || !media.url) return null;
   
-  const imageUrl = media.url.startsWith('/') 
-    ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${media.url}`
-    : media.url;
-    
-  return imageUrl;
+  const STRAPI_URL = 'http://localhost:1337';
+  
+  // Make sure there's no double slash between domain and path
+  const url = media.url.startsWith('/') ? media.url : `/${media.url}`;
+  const fullUrl = `${STRAPI_URL}${url}`;
+  
+  console.log('Generated image URL:', fullUrl);
+  return fullUrl;
 }

@@ -35,5 +35,35 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# database
+# Strapi specific files
+.tmp/
+.cache/
+.strapi/
+.strapi-updater.json
+dist/
+build/
+exports/
+*.cache
+license.txt
+
+# Strapi database files (if you're using SQLite)
+*.sqlite
+*.sqlite-journal
+*.db
+
+# Strapi environment variables
+/server/.env
+/server/.env.local
+/server/.env.development.local
+/server/.env.test.local
+/server/.env.production.local
+
+# Strapi uploads (in case you store them locally)
+/server/public/uploads/*
+!/server/public/uploads/.gitkeep
+
+# Strapi logs
+/server/logs/
+
+# Strapi database
 server/.tmp

@@ -1,8 +1,24 @@
-export default async function WorkExperiencePage() {
+import NavigateBack from "@/components/navigationButtons/NavigationBack";
+import { getWorkExperienceBySlug } from "@/lib/api";
+
+export default async function ProjectPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const projectData = await getWorkExperienceBySlug(params.slug);
+  console.log(projectData);
+
+  const { companyTitle } = projectData;
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-3xl">
-     hello world
+    <div className="flex items-center justify-center w-full mt-[5rem]">
+      <div className="w-full max-w-2xl space-y-4">
+        <div className="flex-col mb-16">
+          <NavigateBack />
+          <h1 className="text-2xl font-bold">{companyTitle}</h1>
+        </div>
+      </div>
     </div>
   );
 }

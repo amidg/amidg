@@ -3,7 +3,6 @@ import NavigateToOtherPage from "../navigationButtons/NavigationToOtherPage";
 import { getRecentProjects } from "@/lib/api";
 import RecentProjectListWrapper from "../wrappers/RecentProjectListWrapper";
 
-// export const revalidate = 60; // Revalidate at most once per minute
 
 export default async function ProjectsSection() {
   // Fetch data on the server

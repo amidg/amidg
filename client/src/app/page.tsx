@@ -4,8 +4,8 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import ExperienceSection from "@/components/sections/ExperienceSection";
 import ProjectSection from "@/components/sections/ProjectsSection";
 import ChronologySection from "@/components/sections/ChronologySection";
-import BlogSection from "@/components/sections/BlogSectioin";
 import ConnectSection from "@/components/sections/ConnectSection";
+import FeaturedBlogsSection from "@/components/sections/FeaturedBlogSection";
 
 export const revalidate = 3600; // Revalidate every hour
 
@@ -104,7 +104,7 @@ export default async function HomePage() {
             {chronologyItems.length > 0 && (
               <ChronologySection chronologyItems={chronologyItems} />
             )}
-            <BlogSection />
+            <FeaturedBlogsSection />
             <ConnectSection connectData={connectBlock} />
           </div>
         </div>

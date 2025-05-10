@@ -60,3 +60,17 @@ body {
 .footer { 
   background-color: var(--color-background);
 }
+
+::-webkit-scrollbar {
+  width: 6px;
+  background: #060709;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00180f;
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-corner {
+  background: #000;
+}

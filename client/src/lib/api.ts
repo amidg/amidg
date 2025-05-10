@@ -95,7 +95,7 @@ export async function getBlogPosts() {
       return { data: [], meta: { pagination: { page: 1, pageSize: 10, pageCount: 0, total: 0 } } };
     }
     
-    return data;
+    return data.data;
   } catch (error) {
     console.error("Error in getBlogs:", error);
     // Return a default structure to prevent breaking the UI
@@ -123,6 +123,34 @@ export async function getBlogPost(slug: string) {
   } catch (error) {
     console.error(`Error in getBlogPost for slug ${slug}:`, error);
     return null;
+  }
+}
+
+
+// Add this to your lib/api.ts file
+export async function getFeaturedBlogs() {
+  try {
+    // Add filtering parameter for featured blogs
+    const data = await fetchAPI('blogs', {
+      'filters[featured][$eq]': true,
+      'populate': '*',
+      'sort[0]': 'publishDate:desc'  // Sort by publish date, newest first
+    });
+    
+    console.log("Featured blogs data structure:", 
+                data ? `Has data: ${!!data.data}, Meta: ${!!data.meta}` : "No data returned");
+    
+    // Apply defaults if data is missing
+    if (!data?.data) {
+      console.warn("No featured blogs data found, returning empty array");
+      return { data: [], meta: { pagination: { page: 1, pageSize: 10, pageCount: 0, total: 0 } } };
+    }
+    
+    return data;
+  } catch (error) {
+    console.error("Error in getFeaturedBlogs:", error);
+    // Return a default structure to prevent breaking the UI
+    return { data: [], meta: { pagination: { page: 1, pageSize: 10, pageCount: 0, total: 0 } } };
   }
 }
 

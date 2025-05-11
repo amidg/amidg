@@ -4,10 +4,11 @@ import { getWorkExperienceBySlug } from "@/lib/api";
 export default async function ProjectPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const projectData = await getWorkExperienceBySlug(params.slug);
-  console.log(projectData);
+
+  const { slug } = await params;
+  const projectData = await getWorkExperienceBySlug(slug);
 
   const { companyTitle } = projectData;
 

@@ -1,4 +1,4 @@
-const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
+const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 const API_URL = `${BASE_URL}/api`;
 
 /**
@@ -323,7 +323,7 @@ export async function getFooterData() {
 export function getStrapiMedia(media:any) {
   if (!media || !media.url) return null;
   
-  const STRAPI_URL = 'http://localhost:1337';
+  const STRAPI_URL = 'https://blog.gusev.tech';
   
   // Make sure there's no double slash between domain and path
   const url = media.url.startsWith('/') ? media.url : `/${media.url}`;

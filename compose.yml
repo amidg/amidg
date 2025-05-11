@@ -22,9 +22,9 @@ services:
     volumes:
       - ./server:/opt/app:z # mount source code
       - ./blog/data.db:/opt/app/.tmp/data.db:Z # mount db
-      #- /opt/app/node_modules # keep node modules
+      - /opt/app/node_modules # keep node modules
     ports:
-      - 9098:1337
+      - 1337:1337
     env_file:
       - ./server/.env
     environment:

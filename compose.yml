@@ -20,11 +20,11 @@ services:
     container_name: amidg_blog
     hostname: amidg_blog
     volumes:
-      - ./server:/opt/app:Z # mount source code
+      - ./server:/opt/app:z # mount source code
       - ./blog/data.db:/opt/app/.tmp/data.db:Z # mount db
-      - /opt/app/node_modules # keep node modules
+      #- /opt/app/node_modules # keep node modules
     ports:
-      - 1337:1337
+      - 9098:1337
     env_file:
       - ./server/.env
     environment:
@@ -32,7 +32,7 @@ services:
     networks:
       - amidg-website-network
 
-  # blog
+  # website
   website:
     <<: *base
     profiles:
@@ -46,7 +46,7 @@ services:
     container_name: amidg_website
     hostname: amidg_frontend
     volumes:
-      - ./client:/opt/app:Z # mount source code
+      - ./client:/opt/app:z # mount source code
       # - /opt/app/node_modules # keep node modules
     ports:
       - 3000:3000

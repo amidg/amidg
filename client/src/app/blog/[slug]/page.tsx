@@ -7,15 +7,15 @@ import NavigateBack from "@/components/navigationButtons/NavigationBack";
 import { getBlogPost } from "@/lib/api";
 import { notFound } from "next/navigation";
 
-export const revalidate = 10;
+export const revalidate = 100;
 
-export default async function ProjectPage({
+export default async function BlogPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-
-  const blogPostData = await getBlogPost(params.slug);
+  const { slug } = await params;
+  const blogPostData = await getBlogPost(slug);
 
   const content: BlocksContent = blogPostData.content;
 
@@ -38,7 +38,13 @@ export default async function ProjectPage({
             <div className="flex items-center">
               <h1 className="text-2xl font-bold">{blogPostData.title}</h1>
             </div>
-            {/* <BlocksRenderer content={content} /> */}
+            {content ? (
+              <div className="markdown-body">
+                <BlocksRenderer content={content} />{" "}
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
 

@@ -21,9 +21,6 @@
     "summary": {
       "type": "string"
     },
-    "content": {
-      "type": "richtext"
-    },
     "coverImage": {
       "type": "media",
       "multiple": false,
@@ -47,6 +44,9 @@
     },
     "order": {
       "type": "integer"
+    },
+    "content": {
+      "type": "blocks"
     }
   }
 }

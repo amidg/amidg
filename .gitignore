@@ -67,3 +67,5 @@ license.txt
 
 # Strapi database
 server/.tmp
+
+blog/

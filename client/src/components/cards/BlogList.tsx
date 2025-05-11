@@ -1,39 +1,3 @@
-// "use client";
-
-// import Link from "next/link";
-
-// export default function BlogList({ initialData }: { initialData: any }) {
-//   const blogList = initialData
-//   // Add debug logging
-
-//   return (
-//     <div className="space-y-4 mt-4">
-//       {blogList.map((post: any) => (
-//         <BlogItem key={post.id} post={post} />
-//       ))}
-//     </div>
-//   );
-// }
-
-// function BlogItem({ post }: { post: any }) {
-//   // Access properties directly on the post object, not through attributes
-//   const { title, slug, summary, publishDate } = post;
-  
-//   return (
-//     <div className="flex flex-col space-y-1">
-//       <Link href={`/blog/${slug}`} className="group">
-//         <h3 className="font-medium group-hover:text-blue-500 transition-colors">{title}</h3>
-//       </Link>
-//       {summary && (
-//         <p className="text-sm text-gray-500">{summary}</p>
-//       )}
-//       {publishDate && (
-//         <time className="text-xs text-gray-400">{new Date(publishDate).toLocaleDateString()}</time>
-//       )}
-//     </div>
-//   );
-// }
-
 import React from "react";
 import NavigateBack from "../navigationButtons/NavigationBack";
 import Link from "next/link";

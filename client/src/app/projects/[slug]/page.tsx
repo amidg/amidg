@@ -5,9 +5,10 @@ import { notFound } from "next/navigation";
 export default async function ProjectPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const projectData = await getProjectBySlug(params.slug);
+  const { slug } = await params;
+  const projectData = await getProjectBySlug(slug);
 
   if (!projectData) {
     notFound();
@@ -21,7 +22,7 @@ export default async function ProjectPage({
             <NavigateBack />
           </div>
         </div>
-        
+
         {/* Main content */}
         <div className="w-full max-w-2xl">
           <div className="flex flex-col">
@@ -31,7 +32,7 @@ export default async function ProjectPage({
             {/* Add other project content here */}
           </div>
         </div>
-        
+
         {/* Right column */}
         <div className="w-12 flex-shrink-0">
           {/* Content for right sidebar */}
